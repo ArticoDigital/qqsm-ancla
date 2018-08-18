@@ -126,7 +126,7 @@
             </div>
             <figure>
                 <img src="@/assets/images/imgllamadaamigo.png" alt="">
-                <p>C</p>
+                <p>{{callFriend}}</p>
             </figure>
         </div>
         <audio id="correct">
@@ -142,6 +142,7 @@
   export default {
     data () {
       return {
+        callFriend: '',
         questionCurrent: 1,
         level: 'easy',
         levelCurrent: 0,
@@ -164,6 +165,12 @@
           2: {1: true, 2: ''},
           3: {1: true, 2: ''},
           4: {1: true, 2: ''}
+        },
+        normalizeNumber: {
+          1: 'a',
+          2: 'b',
+          3: 'c',
+          4: 'd'
         }
       }
     },
@@ -223,11 +230,7 @@
         return this.questionCurrentTotal === s
       },
       correctPublic: function (s) {
-        return Object.keys(this.answersShow).forEach(key => {
-          if (this.answersShow[key][2]) {
-            return true
-          }
-        })
+        return this.answersShow[s][2]
       },
       public () {
         if (!this.helps.public) {
@@ -239,6 +242,11 @@
         if (!this.helps.call) {
           this.helps.call = true
           this.helpsShow.call = true
+          Object.keys(this.answersShow).forEach(key => {
+            if (this.answersShow[key][2]) {
+              this.callFriend = this.normalizeNumber[key]
+            }
+          })
         }
       },
       fifty () {
