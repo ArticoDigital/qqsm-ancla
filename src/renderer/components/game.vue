@@ -223,7 +223,6 @@
           } else {
             this.level = 'hard'
           }
-          return
         }
         this.questionCurrent++
         Object.keys(this.answersShow).forEach(key => {
@@ -248,6 +247,14 @@
         if (!this.helps.public) {
           this.helps.public = true
           this.helpsShow.public = true
+          Object.keys(this.answersShow).forEach(key => {
+            if (this.answersShow[key][2]) {
+              this.callFriend = this.normalizeNumber[key]
+            }
+          })
+          Object.keys(this.answersShow).forEach(key => {
+            this.answersShow[key][1] = true
+          })
         }
       },
       call () {
@@ -258,6 +265,9 @@
             if (this.answersShow[key][2]) {
               this.callFriend = this.normalizeNumber[key]
             }
+          })
+          Object.keys(this.answersShow).forEach(key => {
+            this.answersShow[key][1] = true
           })
         }
       },
@@ -273,11 +283,7 @@
               count++
             }
           })
-          Object.keys(this.answersShow).forEach(key => {
-            if (this.answersShow[key][2]) {
-              this.callFriend = this.normalizeNumber[key]
-            }
-          })
+          console.log(this.answersShow)
         }
       }
     }
