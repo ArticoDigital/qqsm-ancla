@@ -218,7 +218,7 @@
         console.log('order' + this.order)
         console.log('questionCurrent' + this.questionCurrent)
         this.questionCurrentTotal++
-        if (this.questionCurrent === 4) {
+        if (this.questionCurrent === 5) {
           this.questionCurrent = 0
           if (this.levelCurrent === 0) {
             this.level = 'medium'
