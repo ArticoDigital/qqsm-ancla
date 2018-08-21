@@ -214,6 +214,9 @@
         }
         document.getElementById('correct').play()
         this.question = DB[this.level][this.order[this.questionCurrent]]
+        console.log('nivel' + this.level)
+        console.log('order' + this.order)
+        console.log('questionCurrent' + this.questionCurrent)
         this.questionCurrentTotal++
         if (this.questionCurrent === 4) {
           this.questionCurrent = 0
@@ -247,14 +250,6 @@
         if (!this.helps.public) {
           this.helps.public = true
           this.helpsShow.public = true
-          Object.keys(this.answersShow).forEach(key => {
-            if (this.answersShow[key][2]) {
-              this.callFriend = this.normalizeNumber[key]
-            }
-          })
-          Object.keys(this.answersShow).forEach(key => {
-            this.answersShow[key][1] = true
-          })
         }
       },
       call () {
@@ -265,9 +260,6 @@
             if (this.answersShow[key][2]) {
               this.callFriend = this.normalizeNumber[key]
             }
-          })
-          Object.keys(this.answersShow).forEach(key => {
-            this.answersShow[key][1] = true
           })
         }
       },
@@ -283,7 +275,15 @@
               count++
             }
           })
-          console.log(this.answersShow)
+          Object.keys(this.answersShow).forEach(key => {
+            if (this.answersShow[key][2]) {
+              this.callFriend = this.normalizeNumber[key]
+            }
+          })
+          this.answersShow[1][2] = this.questionNew.answers[this.orderAns[0]].correct
+          this.answersShow[2][2] = this.questionNew.answers[this.orderAns[1]].correct
+          this.answersShow[3][2] = this.questionNew.answers[this.orderAns[2]].correct
+          this.answersShow[4][2] = this.questionNew.answers[this.orderAns[3]].correct
         }
       }
     }
