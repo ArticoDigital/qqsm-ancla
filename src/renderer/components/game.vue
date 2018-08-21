@@ -223,6 +223,13 @@
           } else {
             this.level = 'hard'
           }
+          Object.keys(this.answersShow).forEach(key => {
+            this.answersShow[key][1] = true
+          })
+          this.answersShow[1][2] = this.questionNew.answers[this.orderAns[0]].correct
+          this.answersShow[2][2] = this.questionNew.answers[this.orderAns[1]].correct
+          this.answersShow[3][2] = this.questionNew.answers[this.orderAns[2]].correct
+          this.answersShow[4][2] = this.questionNew.answers[this.orderAns[3]].correct
           return
         }
         this.questionCurrent++
