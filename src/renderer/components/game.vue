@@ -214,11 +214,8 @@
         }
         document.getElementById('correct').play()
         this.question = DB[this.level][this.order[this.questionCurrent]]
-        console.log('nivel' + this.level)
-        console.log('order' + this.order)
-        console.log('questionCurrent' + this.questionCurrent)
         this.questionCurrentTotal++
-        if (this.questionCurrent === 5) {
+        if (this.questionCurrent === 4) {
           this.questionCurrent = 0
           if (this.levelCurrent === 0) {
             this.level = 'medium'
@@ -226,6 +223,7 @@
           } else {
             this.level = 'hard'
           }
+          return
         }
         this.questionCurrent++
         Object.keys(this.answersShow).forEach(key => {
