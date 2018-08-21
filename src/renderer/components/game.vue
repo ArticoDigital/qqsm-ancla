@@ -273,6 +273,11 @@
               count++
             }
           })
+          Object.keys(this.answersShow).forEach(key => {
+            if (this.answersShow[key][2]) {
+              this.callFriend = this.normalizeNumber[key]
+            }
+          })
         }
       }
     }
