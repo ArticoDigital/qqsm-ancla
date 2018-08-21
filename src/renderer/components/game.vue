@@ -191,7 +191,7 @@
         }
       }
       while (i < 5) {
-        let numberRand = Math.floor((Math.random() * 33) + 1)
+        let numberRand = Math.floor((Math.random() * 50) + 1)
         if (!this.order.includes(numberRand)) {
           this.order.push(numberRand)
           i++
