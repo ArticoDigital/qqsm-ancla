@@ -1,12 +1,12 @@
 <template>
     <div id="wrapper">
         <audio id="error" autoplay   >
-            <source src="@/assets/audio/error.mp3" type="audio/mpeg">
+            <source src="@/assets/audio/correcto.mp3" type="audio/mpeg">
         </audio>
         <main class="row justify-center align-center">
             <figure>
                 <router-link to="/game">
-                    <img src="@/assets/images/imgperdiste.png" alt="">
+                    <img src="@/assets/images/imgganador.png" alt="">
                 </router-link>
             </figure>
         </main>

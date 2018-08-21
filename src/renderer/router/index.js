@@ -21,6 +21,11 @@ export default new Router({
       component: require('@/components/errorgame').default
     },
     {
+      path: '/successgame',
+      name: 'successgame',
+      component: require('@/components/successgame').default
+    },
+    {
       path: '*',
       redirect: '/'
     }
